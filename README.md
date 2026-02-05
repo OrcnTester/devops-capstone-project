@@ -1,6 +1,6 @@
 # devops-capstone-project
 
-![CI](https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPO_NAME>/actions/workflows/ci-build.yaml/badge.svg)
+![CI](https://github.com/orcntester/devops-capstone-project/actions/workflows/ci-build.yaml/badge.svg)
 
 A small RESTful microservice for managing **Customer Accounts** (CRUD) built with **Flask + SQLAlchemy**.
 

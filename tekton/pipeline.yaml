@@ -1,0 +1,22 @@
+# Sample Tekton Pipeline (minimal) - you can adapt to the lab instructions.
+# Many IBM Skills Network labs create tasks via the OpenShift UI; this file is here as reference.
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: accounts-cd
+spec:
+  params:
+    - name: repo-url
+      type: string
+    - name: branch
+      type: string
+      default: main
+  tasks:
+    - name: clone
+      taskRef:
+        name: git-clone
+      params:
+        - name: url
+          value: $(params.repo-url)
+        - name: revision
+          value: $(params.branch)

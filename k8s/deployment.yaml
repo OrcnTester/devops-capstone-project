@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: accounts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: accounts
+  template:
+    metadata:
+      labels:
+        app: accounts
+    spec:
+      containers:
+      - name: accounts
+        image: <YOUR_IMAGE_REGISTRY>/accounts:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DATABASE_URI
+          value: "sqlite:////tmp/dev.db"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: accounts
+spec:
+  selector:
+    app: accounts
+  ports:
+  - port: 80
+    targetPort: 8080

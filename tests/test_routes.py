@@ -4,6 +4,7 @@ import json
 
 from service import create_app, db
 
+
 class TestRoutes(unittest.TestCase):
     def setUp(self):
         os.environ["DATABASE_URI"] = "sqlite://"

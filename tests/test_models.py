@@ -4,6 +4,7 @@ import unittest
 from service import create_app, db
 from service.models import Account, DataValidationError
 
+
 class TestAccountModel(unittest.TestCase):
     def setUp(self):
         os.environ["DATABASE_URI"] = "sqlite://"

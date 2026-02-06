@@ -1,8 +1,11 @@
 from datetime import datetime
+
 from service import db
 
+
 class DataValidationError(ValueError):
-    """Used for an data validation errors when deserializing"""
+    """Used for data validation errors when deserializing"""
+
 
 class Account(db.Model):
     """Model for a customer account"""
@@ -15,7 +18,12 @@ class Account(db.Model):
     address = db.Column(db.String(256), nullable=True)
     phone = db.Column(db.String(32), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+    updated_at = db.Column(
+        db.DateTime,
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow,
+        nullable=False,
+    )
 
     def serialize(self) -> dict:
         return {
